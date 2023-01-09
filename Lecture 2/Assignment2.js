@@ -6,7 +6,7 @@
 // Parcel is used for bundling many things in one package.
 // Parcel is used for this many things :-
 
-// MINIFY
+// MINIFY -> JS( TERSER ) , CSS( Lightningcss ) , HTML(htmlnano)
 // Cleaning of our code
 // PORT number management
 // HMR ( hot module replacemnt )
@@ -54,6 +54,9 @@
 // It is not a good idea as it is of very large size and also it can be generated using npm init command.
 
 // What is the `dist` folder?
+
+// What is Tree Shaking?
+// Tree shaking is a term commonly used within a JavaScript context to describe the removal of dead code.
 
 // What is `browserlists`
 // Answered above

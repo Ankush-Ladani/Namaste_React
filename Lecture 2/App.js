@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 const heading1 = React.createElement(
   "h1",
   {
+    key: "h1",
     style: {
       color: "blue",
     },
@@ -11,15 +12,53 @@ const heading1 = React.createElement(
   "Namaste Everyone!! from h1"
 );
 
-//   createElement is an object
+// createElement is an object
 const heading2 = React.createElement(
   "h2",
   {
     style: {
       color: "blue",
     },
+    key: "h2",
   },
   "Namaste Everyone!! from h2"
+);
+
+const heading3 = <h3 key="h3">Namaste From heading3</h3>; // React Element written using JSX
+
+const header = (
+  <div key="header">
+    <h1>Header</h1>
+    <ul>
+      <li>Home</li>
+      <li>About Us</li>
+      <li>Contact Us</li>
+    </ul>
+  </div>
+);
+
+// Components are basically a normal JS function returning JSX.
+
+// If we dont have babel then JSX won't be able to execute.
+
+// Keys are used for saving time in re-rendering UI.
+
+const FooterComponent = () => {
+  return (
+    <div>
+      <footer>
+        <h1>Footer</h1>
+      </footer>
+    </div>
+  );
+};
+
+const FooterComponent2 = () => (
+  <div>
+    <footer>
+      <h1>Footer2</h1>
+    </footer>
+  </div>
 );
 
 //   console.log(heading2);
@@ -29,12 +68,24 @@ const container = React.createElement(
   {
     id: "container",
   },
-  [heading1, heading2]
+  [header, heading1, heading2, heading3]
+);
+
+const container2 = (
+  <div>
+    {header}
+    {heading1}
+    <FooterComponent />
+  </div>
 );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(container);
+// root.render(container);
+root.render(container2);
+
+// root.render(<FooterComponent />);
+// root.render(<FooterComponent2 />);
 
 // package-lock.json locks the version
 // It helps in downloading all dependency where our server is running

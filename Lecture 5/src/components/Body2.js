@@ -1,65 +1,63 @@
-import RestaurantCard from "./RestaurantCard";
 import { RestaurantList } from "../../config";
+import RestaurantCard from "./RestaurantCard";
 import { useState } from "react";
 
-const filterData = (searchText, restaurants) => {
-  return restaurants.filter((restaurant) =>
-    restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
+function filterData(searchText, restaurants) {
+  const filterData = restaurants.filter((restaurant) =>
+    restaurant.data.name.includes(searchText)
   );
-};
+  return filterData;
+}
 
-export const Body2 = () => {
-  const [searchText, setSearchText] = useState();
+const Body2 = () => {
   const [restaurants, setRestaurants] = useState(RestaurantList);
-  const [errorMsg, setErrorMsg] = useState("");
-
-  const searchData = (searchText, restaurants) => () => {
-    if (searchText !== "") {
-      const data = filterData(searchText, restaurants);
-      setRestaurants(data);
-      if (data.length === 0) {
-        setErrorMsg("No matches found ");
-      }
-    } else {
-      if (errorMsg) setErrorMsg("");
-      setRestaurants(RestaurantList);
-    }
-  };
-
+  const [searchRestaurants, setsearchRestaurants] = useState(RestaurantList);
+  const [searchText, setSearchText] = useState("");
+  console.log(searchRestaurants);
   return (
-    <div className="container">
+    <>
       <div className="search-container">
         <input
           type="text"
-          placeholder=" Search for restaurant"
-          value={searchText}
           className="search-input"
-          key="input-text"
-          onChange={(e) => setSearchText(e.target.value)}
+          placeholder="Search"
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
         />
         <button
           className="search-btn"
-          onClick={searchData(searchText, restaurants)}
+          onClick={() => {
+            //need to filter the data
+            console.log(RestaurantList);
+            const data = filterData(searchText, restaurants);
+
+            setsearchRestaurants(data);
+          }}
         >
-          {" "}
-          Search{" "}
+          Search
         </button>
       </div>
-      {errorMsg && (
-        <div className="error-container" id="error">
-          <span className="error-msg" id="error-msg">
-            {errorMsg}
-          </span>
+      {searchText ? (
+        <div className="restaurant-list">
+          {searchRestaurants.map((restaurant) => {
+            return (
+              <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+            );
+          })}
+        </div>
+      ) : (
+        <div className="restaurant-list">
+          {restaurants.map((restaurant) => {
+            return (
+              <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+            );
+          })}
         </div>
       )}
-
-      <div className="restaurant-list">
-        {restaurants.map((restaurant) => {
-          return (
-            <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
-          );
-        })}
-      </div>
-    </div>
+    </>
   );
 };
+
+export default Body2;

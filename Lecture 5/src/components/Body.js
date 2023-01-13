@@ -54,17 +54,29 @@ const Body = () => {
         {/* <h1> {searchInput} </h1> */}
       </div>
       <div className="restList">
-        {restaurants.map((item, index) => {
-          return (
-            <RestaurantCard
-              key={index}
-              name={item.data.name}
-              link={item.data.cloudinaryImageId}
-              price={item.data.costForTwoString}
-              rating={item.data.avgRating}
-            />
-          );
-        })}
+        {searchInput ? (
+          <div>
+            {restaurants.map((item, index) => {
+              return (
+                <RestaurantCard
+                  key={index}
+                  name={item.data.name}
+                  link={item.data.cloudinaryImageId}
+                  price={item.data.costForTwoString}
+                  rating={item.data.avgRating}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <div className="restaurant-list">
+            {restaurants.map((restaurant) => {
+              return (
+                <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+              );
+            })}
+          </div>
+        )}
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import Header from "./src/components/Header";
 import Body from "./src/components/Body";
 import Footer from "./src/components/Footer";
 
-import { Body2 } from "./src/components/Body2";
+import Body2 from "./src/components/Body2";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -12,8 +12,8 @@ const AppLayout = () => {
   return (
     <>
       <Header />
-      <Body />
-      {/* <Body2 /> */}
+      {/* <Body /> */}
+      <Body2 />
       <Footer />
     </>
   );

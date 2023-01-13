@@ -1,18 +1,37 @@
 import RestaurantCard from "./RestaurantCard";
-import { RestaurantList } from "../../config";
+import { RestaurantList } from "../../config.js";
 import { useState } from "react";
+
+const filterData = (searchText, restaurants) => {
+  return restaurants.filter((restaurant) =>
+    restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+};
 
 const Body = () => {
   const [searchInput, setSearchInput] = useState("");
   const [restaurants, setRestaurants] = useState(RestaurantList);
-
-  const filterData = (searchInput, restaurants) => {
-    const filterData = restaurants.filter((restro) =>
-      restro.data.name.includes(searchInput)
-    );
-    setSearchInput("");
-    return filterData;
+  const [errMsg, setErrorMsg] = useState("");
+  const searchData = (searchInput, restaurants) => () => {
+    if (searchInput !== "") {
+      const data = filterData(searchInput, restaurants);
+      setRestaurants(data);
+    } else {
+      setErrorMsg("No Match Found");
+      setRestaurants(RestaurantList);
+    }
   };
+
+  // const filterData = (searchInput, restaurants) => {
+  //   if (searchInput == "") {
+  //     return setRestaurants(restaurants);
+  //   }
+  //   const filteredData = restaurants.filter((restro) =>
+  //     restro.data.name.includes(searchInput)
+  //   );
+  //   setSearchInput("");
+  //   return filteredData;
+  // };
 
   // we have used state becoz react doesn't know when this variable will be change for this we have intorduced a hook called useState which watches state every time when component re-render
 
@@ -30,11 +49,8 @@ const Body = () => {
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        <button
-          onClick={() => setRestaurants(filterData(searchInput, restaurants))}
-        >
-          Search
-        </button>
+        <button onClick={searchData(searchInput, restaurants)}>Search</button>
+        <h1> {errMsg} </h1>
         {/* <h1> {searchInput} </h1> */}
       </div>
       <div className="restList">

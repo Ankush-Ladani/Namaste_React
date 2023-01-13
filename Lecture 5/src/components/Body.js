@@ -3,7 +3,16 @@ import { RestaurantList } from "../../config";
 import { useState } from "react";
 
 const Body = () => {
-  const [searchInput, setSearchInput] = useState("KFC");
+  const [searchInput, setSearchInput] = useState("");
+  const [restaurants, setRestaurants] = useState(RestaurantList);
+
+  const filterData = (searchInput, restaurants) => {
+    const filterData = restaurants.filter((restro) =>
+      restro.data.name.includes(searchInput)
+    );
+    setSearchInput("");
+    return filterData;
+  };
 
   // we have used state becoz react doesn't know when this variable will be change for this we have intorduced a hook called useState which watches state every time when component re-render
 
@@ -21,13 +30,18 @@ const Body = () => {
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        <button>Search</button>
-        <h1> {searchInput} </h1>
+        <button
+          onClick={() => setRestaurants(filterData(searchInput, restaurants))}
+        >
+          Search
+        </button>
+        {/* <h1> {searchInput} </h1> */}
       </div>
       <div className="restList">
-        {RestaurantList.map((item) => {
+        {restaurants.map((item, index) => {
           return (
             <RestaurantCard
+              key={index}
               name={item.data.name}
               link={item.data.cloudinaryImageId}
               price={item.data.costForTwoString}

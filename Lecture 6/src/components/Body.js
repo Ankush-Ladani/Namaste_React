@@ -18,18 +18,15 @@ const Body = () => {
     );
 
     const json = await data.json();
-    // console.log(json);
     setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
 
   const filterData = (searchInput, restaurants) => {
-    if (searchInput) {
-      const filterData = restaurants.filter((restro) =>
-        restro?.data?.name?.toLowerCase()?.includes(searchInput?.toLowerCase())
-      );
-      return filterData;
-    }
+    const filterData = restaurants.filter((restro) =>
+      restro?.data?.name?.toLowerCase()?.includes(searchInput?.toLowerCase())
+    );
+    return filterData;
   };
   return (
     <>
@@ -49,14 +46,14 @@ const Body = () => {
         </button>
         {/* <h1> {searchInput} </h1> */}
       </div>
-      {restaurants ? (
+      {restaurants.length === 0 ? (
+        <Shimmer />
+      ) : (
         <div className="restList">
           {filteredRestaurants.map((item, index) => {
             return <RestaurantCard {...item.data} />;
           })}
         </div>
-      ) : (
-        <Shimmer />
       )}
     </>
   );

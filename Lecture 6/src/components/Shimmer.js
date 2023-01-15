@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Shimmer() {
-  return <div>Shimmer...</div>;
+  return <h1>Shimmer...</h1>;
 }

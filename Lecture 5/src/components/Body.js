@@ -108,7 +108,7 @@ const Body = () => {
 
   const filterData = (searchInput, restaurants) => {
     const filterData = restaurants.filter((restro) =>
-      restro.data.name.includes(searchInput)
+      restro?.data?.name?.toLowerCase()?.includes(searchInput?.toLowerCase())
     );
     setSearchInput("");
     return filterData;

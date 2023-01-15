@@ -12,8 +12,8 @@ const AppLayout = () => {
   return (
     <>
       <Header />
-      {/* <Body /> */}
-      <Body2 />
+      <Body />
+      {/* <Body2 /> */}
       <Footer />
     </>
   );

@@ -1,5 +1,5 @@
 import RestaurantCard from "./RestaurantCard";
-import { RestaurantList } from "../../config";
+// import { RestaurantList } from "../../config";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 
@@ -14,9 +14,8 @@ const Body = () => {
 
   async function getRestaurants() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.6915853&lng=72.86336349999999&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.4707019&lng=70.05773&page_type=DESKTOP_WEB_LISTING"
     );
-
     const json = await data.json();
     setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);

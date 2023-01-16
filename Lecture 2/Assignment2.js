@@ -34,7 +34,7 @@
 // - List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
 // BrowserLists -> It helps in compatibility of our website in different brosers.
 // HMR -> Answered above
-//
+// MINIFY -> will remove whitespaces , renames variable names , etc
 
 // What is `.gitignore`? What should we add and not add into it?
 // It is a file which consist names of files or folders which we dont want to push into git.

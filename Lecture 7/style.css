@@ -1,0 +1,66 @@
+body {
+  background-color: rgb(251, 246, 246);
+  margin: 2rem;
+}
+
+.header {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.list {
+  display: flex;
+  margin-right: 5rem;
+  margin-top: 3rem;
+}
+.list li {
+  list-style: none;
+  padding: 1rem;
+  font-size: 2rem;
+  color: blueviolet;
+  cursor: pointer;
+}
+
+.card {
+  border: 3px solid burlywood;
+  border-radius: 7px;
+  margin: 0rem 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.restList {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+/* Shimmer */
+.shimmer-container {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+.shimmer-resturants {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: auto;
+}
+
+.shimmer-search {
+  width: 55%;
+  height: 2rem;
+  margin: auto;
+  background-color: lightgray;
+  align-items: center;
+  text-align: center;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 250px;
+  background-color: lightgray;
+  margin: 1rem;
+}

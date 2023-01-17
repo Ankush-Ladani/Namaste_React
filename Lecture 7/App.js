@@ -8,6 +8,7 @@ import Body from "./src/components/Body";
 import Footer from "./src/components/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Body2 from "./src/components/Body2";
+import RestaurantInfo from "./src/components/RestaurantInfo";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -40,6 +41,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/restaurant/:id",
+        element: <RestaurantInfo />,
       },
     ],
   },

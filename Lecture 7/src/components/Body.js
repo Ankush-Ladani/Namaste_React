@@ -3,6 +3,8 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 
+import { Link } from "react-router-dom";
+
 const Body = () => {
   const [searchInput, setSearchInput] = useState("");
   const [restaurants, setRestaurants] = useState([]);
@@ -48,8 +50,12 @@ const Body = () => {
         <Shimmer />
       ) : (
         <div className="restList" style={{ marginTop: "2rem" }}>
-          {filteredRestaurants.map((item, index) => {
-            return <RestaurantCard {...item.data} />;
+          {filteredRestaurants.map((item) => {
+            return (
+              <Link key={item.data.id} to={`/restaurant/${item.data.id}`}>
+                <RestaurantCard {...item.data} />
+              </Link>
+            );
           })}
         </div>
       )}

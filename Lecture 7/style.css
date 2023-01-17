@@ -64,3 +64,7 @@ body {
   background-color: lightgray;
   margin: 1rem;
 }
+
+.restInfo {
+  display: flex;
+}

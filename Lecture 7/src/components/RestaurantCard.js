@@ -7,7 +7,6 @@ const RestaurantCard = ({
   //   console.log(props);
   return (
     <div className="card">
-      {/* <img src={link} alt="foodImg" width="350px" /> */}
       <img
         src={
           "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +

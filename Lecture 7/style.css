@@ -68,3 +68,34 @@ body {
 .restInfo {
   display: flex;
 }
+
+/* Sign Up */
+.signupDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUpInput {
+  width: 15rem;
+  padding: 10px;
+}
+
+.signUpLabel {
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+.signupBtn {
+  border-radius: 7px;
+  padding: 7px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 1px solid;
+}
+
+.signupBtn:hover {
+  background-color: rgb(64, 209, 71);
+  color: rgb(18, 100, 21);
+}

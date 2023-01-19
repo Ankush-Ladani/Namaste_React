@@ -6,6 +6,8 @@ import Contact from "./src/components/Contact";
 import Error from "./src/components/Error";
 import Body from "./src/components/Body";
 import Footer from "./src/components/Footer";
+import SignupForm from "./src/components/SignupForm";
+
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Body2 from "./src/components/Body2";
 import RestaurantInfo from "./src/components/RestaurantInfo";
@@ -47,6 +49,10 @@ const appRouter = createBrowserRouter([
         element: <RestaurantInfo />,
       },
     ],
+  },
+  {
+    path: "/signup",
+    element: <SignupForm />,
   },
 ]);
 

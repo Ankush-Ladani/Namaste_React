@@ -27,7 +27,7 @@ class About extends React.Component {
   componentDidMount() {
     this.Timer = setInterval(() => {
       console.log("OPTIMIZE THIS...");
-    });
+    }, 1000);
     console.log("Parent - componentDidMount");
   }
 

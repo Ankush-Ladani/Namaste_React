@@ -3,13 +3,20 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [trys, setTrys] = useState("Ankush");
+
+  // console.log(useState());
 
   return (
     <div className="header">
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCcJ7OhA4hZAWBtIFTFK7NNKmrn18xp8X55g&usqp=CAU"
-        alt="logo"
-      />
+      <Link to="/">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCcJ7OhA4hZAWBtIFTFK7NNKmrn18xp8X55g&usqp=CAU"
+          alt="logo"
+        />
+      </Link>
+      {/* <h3> {trys} </h3>
+      <button onClick={() => setTrys("Ladani")}>Change Name</button> */}
       <ul className="list">
         <Link to="/">
           <img

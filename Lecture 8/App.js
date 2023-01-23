@@ -14,6 +14,11 @@ import BasicForm from "./src/components/BasicForm";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 // import Body2 from "./src/components/Body2";
 import RestaurantInfo from "./src/components/RestaurantInfo";
+// import Instamart from "./src/components/instamart";
+import { lazy, Suspense } from "react";
+import Shimmer from "./src/components/Shimmer";
+
+const Instamart = lazy(() => import("./src/components/instamart"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -56,6 +61,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:id",
         element: <RestaurantInfo />,
+      },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Instamart />
+          </Suspense>
+        ),
       },
     ],
   },

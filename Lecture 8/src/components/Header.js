@@ -43,6 +43,9 @@ const Header = () => {
           />
           Cart
         </li>
+        <Link to="/instamart">
+          <li>Instamart</li>
+        </Link>
       </ul>
       <div>
         {isLoggedIn ? (

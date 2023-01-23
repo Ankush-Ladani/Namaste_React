@@ -2,11 +2,14 @@ import RestaurantCard from "./RestaurantCard";
 // import { RestaurantList } from "../../config";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { GET_RESTAURANTS_URL } from "../../config";
+import { filterData } from "../utils/utils";
 
 import { Link } from "react-router-dom";
 
 const Body = () => {
   const [searchInput, setSearchInput] = useState("");
+
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
@@ -15,20 +18,15 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.4707019&lng=70.05773&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(GET_RESTAURANTS_URL);
     const json = await data.json();
     setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
 
-  function filterData(searchInput, restaurants) {
-    const filterData = restaurants.filter((restro) =>
-      restro?.data?.name?.toLowerCase()?.includes(searchInput?.toLowerCase())
-    );
-    return filterData;
-  }
+  // const restaurant = useGetRestaurants();
+  // const filteredRestaurants = useGetRestaurants()
+
   return (
     <>
       <div className="search-container">

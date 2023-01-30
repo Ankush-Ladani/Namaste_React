@@ -1,17 +1,12 @@
-// 1. Explore all the ways of writing css.
+// 1. What is prop drilling?
+// When we want some data to a children from top or some parent component , then we can pass data using props by passing to all components till out original component which needs data.
 
-// - normal style.css file and do styling using classes and id's.
-// - Inline styling
-// - using MaterialUI , baseUI , etc
-// - Tailwind CSS
-// - SASS or SCSS
+// 2. What is lifting the state up?
+// When we want a single parent element which can control all the child component , then we sholul initialize state in the parent component.
 
-// 2. In tailwind.config.js, what does all the keys mean (content, theme, extend, plugins)?
-// So basically these all are for customization of our choices.
-// content -> It basically defines the path to which tailwind will work.
-// theme -> It defines colors , font-size , media-queries , etc.
-// extend ->  If you’d like to preserve the default values for a theme option but also add new values, add your extensions under the extend key in the theme section of your configuration file.
-// plugins -> allows to register plugins with tailwind that can be used to generate extra utils , components , etc
+// 3. What is Context Provider and Context Consumer?
+// Context Provider is a component which is used to change or manipulate default values of Global Context.
+// Context Consumer is also a component which is used to get all values which are passed to Context Provider.
 
-// 3. Why do we have .postcssrc file?
-// PostCSS is a Node. js tool that transforms your styles using JavaScript plugins
+// 4. If you don’t pass a value to the provider does it take the default value?
+// Yes , It will take default value of Context from the Global Context.

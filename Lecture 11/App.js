@@ -17,6 +17,7 @@ import RestaurantInfo from "./src/components/RestaurantInfo";
 // import Instamart from "./src/components/instamart";
 import { lazy, Suspense } from "react";
 import Shimmer from "./src/components/Shimmer";
+import UserContext from "./src/utils/UserContext";
 
 const Instamart = lazy(() => import("./src/components/instamart"));
 
@@ -26,10 +27,18 @@ const AppLayout = () => {
   return (
     <>
       <Header />
-      <Outlet />
-      {/* <Body /> */}
-      {/* <Body2 /> */}
-      <Footer />
+      <UserContext.Provider
+        value={{
+          user: {
+            name: "Ankush",
+            email: "astarladani@gmail.com",
+          },
+        }}>
+        <Outlet />
+        {/* <Body /> */}
+        {/* <Body2 /> */}
+        <Footer />
+      </UserContext.Provider>
     </>
   );
 };

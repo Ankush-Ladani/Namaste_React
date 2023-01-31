@@ -1,8 +1,10 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 import ProfileFunctional from "./Profile";
 import Profile from "./ProfileClass";
 import ProfileGithub from "./ProfileGithub";
+
 // const About = () => {
 //   return (
 //     <>
@@ -46,9 +48,12 @@ class About extends React.Component {
       <>
         <h1>About Us Page...</h1>
         <ProfileGithub />
+        <UserContext.Consumer>
+          {({ user }) => <h1> My Email is {user.email} </h1>}
+        </UserContext.Consumer>
         {/* <ProfileFunctional name="Ankush" /> */}
-        {/* <Profile name="Ankush" />
-        <Profile name="Ankush 2" /> */}
+        <Profile name="Ankush" />
+        <Profile name="Ankush 2" />
 
         {/* <h3> {this.state.count} </h3>
         <button

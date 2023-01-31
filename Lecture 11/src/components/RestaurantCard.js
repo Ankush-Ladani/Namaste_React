@@ -22,7 +22,6 @@ const RestaurantCard = ({
       <h2 className="px-3 font-semibold"> {costForTwoString} </h2>
       <h2 className="px-3 font-semibold pb-2"> {avgRating} </h2>
       <h1> {user.name} </h1>
-      <p> {user.email} </p>
     </div>
   );
 };

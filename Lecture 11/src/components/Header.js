@@ -3,9 +3,15 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
 import CustomerContext from "../utils/CustomerContext.js";
+import TickMark from "../assets/checked.png";
+import BlackTick from "../assets/Black.png";
+
+import { useOnline } from "../utils/useOnline.js";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  let online = useOnline();
 
   const { user } = useContext(UserContext);
   const { customer } = useContext(CustomerContext);
@@ -64,6 +70,14 @@ const Header = () => {
           </li>
         </Link>
       </ul>
+      <div className="search-container">
+        {online ? (
+          <img className="w-5 pt-10" src={TickMark} alt="" />
+        ) : (
+          // <img src={BlackTick} className="w-5 pt-10" alt="" />
+          <p> YOU ARE OFFLINE!!! </p>
+        )}
+      </div>
       <p className="pt-10 font-bold">{user.name}</p>
       {/* <p className="pt-10 font-bold">{customer.name}</p> */}
 

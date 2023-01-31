@@ -7,6 +7,7 @@ import { GET_RESTAURANTS_URL } from "../../config";
 import { filterData } from "../utils/utils";
 
 import { Link } from "react-router-dom";
+import TickMark from "../assets/checked.png";
 
 const Body = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -31,15 +32,11 @@ const Body = () => {
     <>
       {/* <div className="search-container">
         {online ? (
-          <i
-            className="far fa-laugh-wink"
-            style={{ fontSize: "100px", color: "green" }}
-          ></i>
+          <img className="w-5" src={TickMark} alt="" />
         ) : (
           <i
             style={{ fontSize: "100px", color: "red" }}
-            className="far fa-meh"
-          ></i>
+            className="far fa-meh"></i>
         )}
       </div> */}
       <div className="mt-5 mx-20  w-full">

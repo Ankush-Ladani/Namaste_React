@@ -14,8 +14,14 @@ const RestaurantInfo = () => {
   ) : (
     <div className="flex m-2">
       <div>
-        <img className="w-96" src={IMG_CDN_URL + restaurant?.cloudinaryImageId} alt="" />
-        <h1 className="font-bold text-xl px-3 pt-2">Name :- {restaurant?.name}</h1>
+        <img
+          className="w-96"
+          src={IMG_CDN_URL + restaurant?.cloudinaryImageId}
+          alt=""
+        />
+        <h1 className="font-bold text-xl px-3 pt-2">
+          Name :- {restaurant?.name}
+        </h1>
         <h2 className="px-3 font-semibold"> {restaurant?.area} </h2>
         <h2 className="px-3 font-semibold"> {restaurant?.city} </h2>
         <h2 className="px-3 font-semibold"> {restaurant?.avgRating} </h2>
@@ -25,7 +31,10 @@ const RestaurantInfo = () => {
         <h1 className="font-bold text-xl px-3 pt-2">Menu</h1>
         <ul>
           {Object.values(restaurant?.menu?.items).map((item) => (
-            <li className="px-3 " key={item?.id}> {item.name} </li>
+            <li className="px-3 " key={item?.id}>
+              {" "}
+              {item.name}{" "}
+            </li>
           ))}
         </ul>
       </div>

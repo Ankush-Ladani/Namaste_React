@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./src/components/Header";
+import Header from "./src/components/Header.js";
 import About from "./src/components/About";
 import Contact from "./src/components/Contact";
 import Error from "./src/components/Error";
@@ -18,6 +18,7 @@ import RestaurantInfo from "./src/components/RestaurantInfo";
 import { lazy, Suspense } from "react";
 import Shimmer from "./src/components/Shimmer";
 import UserContext from "./src/utils/UserContext";
+import CustomerContext from "./src/utils/CustomerContext";
 
 const Instamart = lazy(() => import("./src/components/instamart"));
 
@@ -26,19 +27,27 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 const AppLayout = () => {
   return (
     <>
-      <Header />
-      <UserContext.Provider
+      <CustomerContext.Provider
         value={{
-          user: {
-            name: "Ankush",
-            email: "astarladani@gmail.com",
+          customer: {
+            name: "Ankush Ladani",
           },
         }}>
-        <Outlet />
-        {/* <Body /> */}
-        {/* <Body2 /> */}
-        <Footer />
-      </UserContext.Provider>
+        <Header />
+
+        <UserContext.Provider
+          value={{
+            user: {
+              name: "Ankush",
+              email: "astarladani@gmail.com",
+            },
+          }}>
+          <Outlet />
+          {/* <Body /> */}
+          {/* <Body2 /> */}
+          <Footer />
+        </UserContext.Provider>
+      </CustomerContext.Provider>
     </>
   );
 };

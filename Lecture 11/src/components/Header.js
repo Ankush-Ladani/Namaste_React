@@ -2,11 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
+import CustomerContext from "../utils/CustomerContext.js";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const { user } = useContext(UserContext);
+  const { customer } = useContext(CustomerContext);
+
+  console.log(customer);
 
   return (
     <div className="flex justify-between bg-[#D9ACF5]">
@@ -61,6 +65,14 @@ const Header = () => {
         </Link>
       </ul>
       <p className="pt-10 font-bold">{user.name}</p>
+      {/* <p className="pt-10 font-bold">{customer.name}</p> */}
+
+      <CustomerContext.Consumer>
+        {({ customer }) => (
+          <p className="pt-10 font-bold">Hello {customer.name} </p>
+        )}
+      </CustomerContext.Consumer>
+
       <div className="mr-5 mt-10">
         {isLoggedIn ? (
           <button

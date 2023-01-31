@@ -42,31 +42,32 @@ const Body = () => {
           ></i>
         )}
       </div> */}
-        <div className="mt-5 mx-20  w-full">
-          <input
-        className="border-2  border-gray-600 rounded-md focus:bg-gray-600 p-2 m-2 focus:text-white focus:placeholder:text-white"
+      <div className="mt-5 mx-20  w-full">
+        <input
+          className="border-2  border-gray-600 rounded-md focus:bg-gray-600 p-2 m-2 focus:text-white focus:placeholder:text-white"
           type="text"
           placeholder="Search"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
         <button
-        className="rounded-3xl bg-green-800 p-2 w-24 mx-2 hover:bg-green-400 hover:text-gray-500 w-20 text-white font-bold text-md"
+          className="rounded-3xl bg-green-800 p-2 w-24 mx-2 hover:bg-green-400 hover:text-gray-500  text-white font-bold text-md"
           onClick={() =>
             setFilteredRestaurants(filterData(searchInput, restaurants))
-          }
-        >
+          }>
           Search
         </button>
-        </div>
+      </div>
       {restaurants.length === 0 ? (
         <Shimmer />
       ) : (
-        <div className="flex flex-wrap justify-center w-[100%]" style={{ marginTop: "2rem" }}>
+        <div
+          className="flex flex-wrap justify-center w-[100%]"
+          style={{ marginTop: "2rem" }}>
           {filteredRestaurants.map((item) => {
             return (
               <Link key={item.data.id} to={`/restaurant/${item.data.id}`}>
-                <RestaurantCard  {...item.data} />
+                <RestaurantCard {...item.data} />
               </Link>
             );
           })}

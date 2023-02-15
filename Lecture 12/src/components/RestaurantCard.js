@@ -9,7 +9,7 @@ const RestaurantCard = ({
   discountInfo,
 }) => {
   //   console.log(props);
-  console.log(discountInfo);
+  // console.log(discountInfo);
   const { user } = useContext(UserContext);
   return (
     <div className="m-8 w-72 h-[21rem] shadow-xl rounded-xl">

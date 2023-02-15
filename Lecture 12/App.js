@@ -26,6 +26,8 @@ const Instamart = lazy(() => import("./src/components/instamart"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+import Cart from "./src/components/Cart.js";
+
 const AppLayout = () => {
   return (
     <Provider store={store}>
@@ -47,9 +49,9 @@ const AppLayout = () => {
           <Outlet />
           {/* <Body /> */}
           {/* <Body2 /> */}
-          <Footer />
         </UserContext.Provider>
       </CustomerContext.Provider>
+      <Footer />
     </Provider>
   );
 };
@@ -89,6 +91,10 @@ const appRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

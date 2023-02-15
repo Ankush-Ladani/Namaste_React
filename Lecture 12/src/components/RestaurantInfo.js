@@ -18,6 +18,10 @@ const RestaurantInfo = () => {
     dispatch(addItem("Ankush"));
   };
 
+  const addFoodItem = (item) => {
+    dispatch(addItem(item));
+  };
+
   return !restaurant ? (
     <Shimmer />
   ) : (
@@ -47,10 +51,14 @@ const RestaurantInfo = () => {
         <h1 className="font-bold text-xl px-3 pt-2">Menu</h1>
         <ul>
           {Object.values(restaurant?.menu?.items).map((item) => (
-            <li className="px-3 " key={item?.id}>
-              {" "}
-              {item.name}{" "}
-            </li>
+            <div key={item?.id}>
+              <li className="px-3 "> {item.name} </li>
+              <button
+                className="bg-green-100 p-2 m-2s"
+                onClick={() => addFoodItem(item)}>
+                Add Item
+              </button>
+            </div>
           ))}
         </ul>
       </div>

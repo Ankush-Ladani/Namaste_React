@@ -20,6 +20,7 @@ const Header = () => {
 
   const cartItems = useSelector((store) => store.cart.items);
 
+  console.log(cartItems);
   // console.log(customer);
 
   return (
@@ -82,14 +83,17 @@ const Header = () => {
           <p className="pt-10 font-bold">Hello {customer.name} </p>
         )}
       </CustomerContext.Consumer> */}
-      <li className="px-3 hover:cursor-pointer hover:text-white text-[#F55050] text-xl font-bold">
-        {/* <img
+      <Link to="/cart">
+        <li className="px-3 hover:cursor-pointer hover:text-white text-[#F55050] text-xl font-bold">
+          {/* <img
             src="https://cdn-icons-png.flaticon.com/128/3514/3514491.png"
             alt=""
             width="20pxs"
           /> */}
-        Cart - {cartItems.length}
-      </li>
+          Cart - {cartItems.length}
+        </li>
+      </Link>
+
       <div className="mr-5 mt-10">
         {isLoggedIn ? (
           <button

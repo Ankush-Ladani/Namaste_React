@@ -62,7 +62,7 @@ const Body = () => {
           className="flex flex-wrap justify-center w-[100%]"
           style={{ marginTop: "2rem" }}>
           {filteredRestaurants.map((item) => {
-            console.log(item.data.aggregatedDiscountInfo.header);
+            // console.log(item.data.aggregatedDiscountInfo.header);
             return (
               <Link key={item.data.id} to={`/restaurant/${item.data.id}`}>
                 <RestaurantCard

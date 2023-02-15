@@ -4,18 +4,18 @@ import store from "./store";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    items: ["Ankush"],
+    items: [],
   },
   reducers: {
     addItem: (state, actions) => {
       state.items.push(actions.payload);
     },
-    removeItem: (state) => {
+    clearItem: (state) => {
       state.items = [];
     },
   },
 });
 
-export const { addItem, removeItem } = cartSlice.actions;
+export const { addItem, clearItem } = cartSlice.actions;
 
 export default cartSlice.reducer;

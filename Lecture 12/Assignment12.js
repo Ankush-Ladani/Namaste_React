@@ -28,13 +28,13 @@ const randomSlice = createSlice({
     // Any initial value or state or variable you want
     anyState: [],
   },
-  reducers : {
+  reducers: {
     // Define actions or reducer functions here
-    addItem : (state , actions) {
-        // Code your logic here
-    }
-  }
+    addItem: (state, actions) => {
+      // Code your logic here
+    },
+  },
 });
 
-export const {addItem} = randomSlice.actions;
+export const { addItem } = randomSlice.actions;
 export default randomSlice.reducer;

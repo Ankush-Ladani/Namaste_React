@@ -1,9 +1,17 @@
 import React from 'react'
-
+import { useDispatch } from 'react-redux'
+import { closeMenu } from '../utils/navSlice';
 const VideoItem = ({item}) => {
     // console.log(item)
+
+    const dispatch = useDispatch();
+
+    const closeMenuHandler = () => {
+      dispatch(closeMenu());
+    }
+
   return (
-    <div className='h-72 w-52 block mr-3  bg-slate-100 shadow-lg mt-2'>
+    <div onClick={() => closeMenuHandler()} className='h-72 w-52 block mr-3  bg-slate-100 shadow-lg mt-2'>
         <img className='rounded-xl' src={item?.snippet?.thumbnails?.medium?.url} alt="" />
         <p> {item?.snippet?.title} </p>
         <p> {item?.snippet?.channelTitle} </p>

@@ -1,9 +1,18 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Body from './Body'
+import store from '../utils/store';
 import SidebarItem from './SidebarItem'
 
 const SideBar = () => {
+
+  const isMenuOpen = useSelector(store => store.menu.isMenuOpen);
+
+  if(!isMenuOpen){
+    return null;
+  }
+
   return (
     <div className='mt-8'>
       <ul>

@@ -1,8 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
+import store from '../utils/store';
 import ButtonGroup from './ButtonGroup';
 import VideoContainer from './VideoContainer';
 
 const MainContainer = () => {
+
+  const isMenuOpen = useSelector(store => store.menu.isMenuOpen);
+
   return (
     <>
         <div className='ml-6'>

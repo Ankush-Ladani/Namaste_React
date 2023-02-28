@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom';
 
 const WatchPage = () => {
-    const [params] = useSearchParams();
-    // console.log(params.get('v'));
+  const [params] = useSearchParams();
+  // console.log(params.get('v'));
 
    
   return (

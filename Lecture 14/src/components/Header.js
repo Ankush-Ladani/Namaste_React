@@ -1,12 +1,20 @@
 import React from 'react'
-
+import { useDispatch } from 'react-redux'
+import { toggleMenu } from '../utils/navSlice';
 const Header = () => {
+
+  const dispatch = useDispatch();
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu());
+  }
   return (
     <div className='flex w-full'>
         <div className='flex w-1/4'>
-            <img className='w-9 mr-7 h-10 cursor-pointer' src="https://cdn-icons-png.flaticon.com/512/2976/2976215.png" alt="menu-icon" />
-            <img className='w-9 mr-1 cursor-pointer' src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="youtube-icon" />
-            <p className='mt-1 text-xl font-bold'>Youtube</p>
+            <img onClick={() => toggleMenuHandler()} className='w-9 mr-7 h-10 cursor-pointer' src="https://cdn-icons-png.flaticon.com/512/2976/2976215.png" alt="menu-icon" />
+            <div className='flex cursor-pointer'>
+              <img className='w-9 mr-1 cursor-pointer' src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="youtube-icon" />
+              <p className='mt-1 text-xl font-bold'>Youtube</p>
+            </div>
         </div>
         <div className='flex  w-11/12 ml-40'>
             <input className='w-8/12 border-2 border-black rounded-l-full pl-5' type="text" placeholder='Search' />

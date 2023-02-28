@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Body from './Body'
 import SidebarItem from './SidebarItem'
 
 const SideBar = () => {
   return (
-    <div className='mt-8 w-48 flex'>
+    <div className='mt-8'>
       <ul>
         {/* <li className='flex pl-2 pt-1 pb-1'>
           <img className='w-8' src="https://cdn-icons-png.flaticon.com/512/1946/1946436.png" alt="home-icon" />
@@ -42,7 +43,9 @@ const SideBar = () => {
           <img className='w-8' src="https://cdn-icons-png.flaticon.com/512/126/126473.png" alt="liked-icon" />
           <p className='mt-1 ml-6'>Liked videos</p>
         </li> */}
-        <SidebarItem link="https://cdn-icons-png.flaticon.com/512/1946/1946436.png" liStyle="flex pl-2 pt-1 pb-1"  pStyle="mt-1 ml-6"  imgStyle='w-8' pValue="Home"  altValue="home-icon"  />
+        <Link to="/">
+          <SidebarItem link="https://cdn-icons-png.flaticon.com/512/1946/1946436.png" liStyle="flex pl-2 pt-1 pb-1"  pStyle="mt-1 ml-6"  imgStyle='w-8' pValue="Home"  altValue="home-icon"  />
+        </Link>
         <SidebarItem link="https://cdn-icons-png.flaticon.com/512/7887/7887862.png" liStyle="flex pl-2 pt-1 pb-1"  pStyle="mt-1 ml-6"  imgStyle='w-8' pValue="Shorts"  altValue="shorts-icon"  />
         <SidebarItem link="https://cdn-icons-png.flaticon.com/512/2989/2989849.png" liStyle="flex pl-2 pt-1 pb-1"  pStyle="mt-1 ml-6"  imgStyle='w-8' pValue="Subscriptions"  altValue="subscription-icon"  />
         <SidebarItem link="https://cdn-icons-png.flaticon.com/512/2989/2989835.png" liStyle="flex pl-2 pt-1 pb-1"  pStyle="mt-1 ml-6"  imgStyle='w-8' pValue="Library"  altValue="library-icon"  />

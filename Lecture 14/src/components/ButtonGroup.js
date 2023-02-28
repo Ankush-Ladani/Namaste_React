@@ -3,7 +3,7 @@ import ButtonItem from './ButtonItem'
 
 const ButtonGroup = () => {
   return (
-    <div>
+    <div className='flex'>
         <ButtonItem btnValue={"All"} />
         <ButtonItem btnValue={"Music"} />
         <ButtonItem btnValue={"Lo-fi"} />

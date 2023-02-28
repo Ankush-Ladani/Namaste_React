@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.shimmer-container {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+.shimmer-resturants {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: auto;
+}
+
+.shimmer-search {
+  width: 55%;
+  height: 2rem;
+  margin: auto;
+  background-color: lightgray;
+  align-items: center;
+  text-align: center;
+}
+
+.shimmer-card {
+  width: 208px;
+  height: 288px;
+  background-color: lightgray;
+  margin: 1rem;
+}

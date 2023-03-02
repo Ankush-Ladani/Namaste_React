@@ -1,7 +1,8 @@
 import React, { useEffect, useState , useLayoutEffect} from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../utils/navSlice';
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
+import { cacheResults } from '../utils/searchSlice';
 const Header = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,6 +14,8 @@ const Header = () => {
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   }
+
+  const searchCache = useSelector(store => store.search);
 
   const handleFocus = () => {
     setShowSuggestions(true);
@@ -37,7 +40,12 @@ const Header = () => {
   useEffect(() => {
     
     let timer = setTimeout(() => {
-      timer = getSearchResults();
+      if(searchCache[searchQuery]){
+        setSearchResults(searchCache[searchQuery])
+      }
+      else{
+        getSearchResults();
+      }
     },200)
 
     return () => {
@@ -46,10 +54,13 @@ const Header = () => {
   } , [searchQuery])
 
   const getSearchResults = async() => {
-    console.log( "API CALL - " ,searchQuery);
+    console.log("API CALL - ",searchQuery);
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
     setSearchResults(json[1]);
+    dispatch(cacheResults({
+      [searchQuery] : json[1]
+    }))
   }
   
 

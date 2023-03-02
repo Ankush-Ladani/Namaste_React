@@ -35,12 +35,18 @@ const Header = () => {
 
 
   useEffect(() => {
-    getSearchResults();
+    
+    let timer = setTimeout(() => {
+      timer = getSearchResults();
+    },200)
+
+    return () => {
+      clearTimeout(timer);
+    }
   } , [searchQuery])
 
-
-
   const getSearchResults = async() => {
+    console.log( "API CALL - " ,searchQuery);
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
     setSearchResults(json[1]);

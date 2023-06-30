@@ -26,7 +26,7 @@ const RestaurantCard = ({
       <h2 className="px-3 font-semibold pb-2"> {locality} </h2>
       <h2 className="px-3 font-semibold pb-2"> {discountInfo} </h2>
 
-      <h1> {user.name} </h1>
+      {/* <h1> {user.name} </h1> */}
     </div>
   );
 };

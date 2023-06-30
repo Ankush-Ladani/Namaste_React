@@ -10,6 +10,7 @@ import Footer from "./src/components/Footer";
 import Profile from "./src/components/Profile";
 import "./index.css";
 import BasicForm from "./src/components/BasicForm";
+import cors from "cors";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 // import Body2 from "./src/components/Body2";

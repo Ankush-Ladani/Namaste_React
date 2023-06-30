@@ -10,7 +10,7 @@ import store from "../utils/store";
 const RestaurantInfo = () => {
   const { id } = useParams();
 
-  const restaurant = useGetMenu(id);
+  const [restaurant, menuData] = useGetMenu(id);
 
   const dispatch = useDispatch();
 
@@ -50,7 +50,7 @@ const RestaurantInfo = () => {
       <div className="m-2">
         <h1 className="font-bold text-xl px-3 pt-2">Menu</h1>
         <ul>
-          {Object.values(restaurant?.menu?.items).map((item) => (
+          {menuData.map((item) => (
             <div key={item?.id}>
               <li className="px-3 "> {item.name} </li>
               <button

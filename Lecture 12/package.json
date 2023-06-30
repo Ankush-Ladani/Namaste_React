@@ -2,6 +2,7 @@
   "name": "lecture-5",
   "version": "1.0.0",
   "description": "",
+  "proxy": "http://localhost:1234/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
@@ -18,6 +19,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
+    "cors": "^2.8.5",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
